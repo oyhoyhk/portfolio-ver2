@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Portfolio - Nani</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Bebas+Neue|Tinos&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/three.js"></script>
+    <script src="js/func.js"></script>
+    <script src="js/t.min.js"></script>
+    <script src="js/terminalText.js"></script>
+    <script src="js/introbackgroundbyThree.js"></script>
+    <script>
+      function init() {
+        threeLoad();
+        terminalText();
+        const xhq = new XMLHttpRequest();
+        const introBox = document.getElementById(`introBox`);
+        const logo = document.getElementById(`logo`);
+        const mainConText = document.getElementById(`mainConText`);
+        const leftPicBox = document.getElementById(`leftPicBox`);
+        const rightPicBox = document.getElementById(`rightPicBox`);
+        const numberList = document.getElementById(`numberList`);
+        const numbers = document.querySelectorAll(`.number`);
+        const h2 = document.querySelector(`h2`);
+        const text1 = document.getElementById(`text1`);
+        const text2 = document.getElementById(`text2`);
+        const backgroundBox = document.getElementById(`backgroundBox`);
+        const pictureBox = document.getElementById(`hoverBox`);
+        const introExit = document.getElementById(`introExit`);
+        const about = document.getElementById(`nav`);
+        const aboutBox = document.getElementById(`aboutBox`);
+        const aboutExit = document.getElementById(`aboutExit`);
+        const works = document.getElementById(`works`);
+        const worksBox = document.getElementById(`worksBox`);
+        const worksExit = document.getElementById(`worksExit`);
+        const contentContainer = document.getElementById(`contentContainer`);
+
+        let currPage = 0;
+        let prevPage = 0;
+        intro();
+        initEvent();
+        xhq.open(`get`, `./js/data.json`);
+        xhq.responseType = `json`;
+        xhq.send();
+        xhq.onload = function() {
+          mouseHoverEvent();
+          const workList = xhq.response.works;
+          console.log(workList);
+          setMainPage(workList, 0);
+          setNumberUl(workList);
+
+          numberList.children[0].classList.add(`numberOn`);
+
+          Array.from(numberList.children).forEach((elem, i) => {
+            elem.addEventListener(`click`, () => {
+              pictureBox.style.display = `none`;
+              currPage = i;
+              numberList.children[prevPage].classList.remove(`numberOn`);
+              elem.classList.add(`numberOn`);
+              prevPage = currPage;
+              mainPicOut();
+              mainTextOut();
+              mainBackChange(workList, currPage);
+              setTimeout(() => {
+                leftPicBox.style.backgroundImage = `url(${workList[i].mainBoxPicUrl})`;
+                rightPicBox.style.backgroundImage = `url(${workList[i].mainBoxPicUrl})`;
+                h2.innerHTML = workList[i].pageInfo[0];
+                text1.innerHTML = workList[i].pageInfo[1];
+                text2.innerHTML = workList[i].pageInfo[2];
+              }, 1900);
+              mainPicIn();
+              mainTextIn();
+              setTimeout(() => {
+                pictureBox.style.display = `block`;
+              }, 4500);
+            });
+          });
+          const worksBox = document.getElementById(`worksBox`);
+          for (let i = 0; i < workList.length; i++) {
+            const list = document.createElement(`div`);
+            list.classList.add(`workList`);
+            list.innerHTML = workList[i].pageInfo[0];
+            worksBox.append(list);
+          }
+          let movingCount = 0;
+
+          window.addEventListener(`wheel`, e => {
+            if (prevPage === currPage) {
+              e.deltaY > 0 ? currPage++ : currPage--;
+              currPage < 0
+                ? (currPage = 3)
+                : currPage > 3
+                ? (currPage = 0)
+                : "";
+              pictureBox.style.display = `none`;
+              numberList.children[prevPage].classList.remove(`numberOn`);
+              numberList.children[currPage].classList.add(`numberOn`);
+              console.log(currPage);
+              mainPicOut(e.deltaY);
+              mainTextOut();
+              mainBackChange(workList, currPage);
+              setTimeout(() => {
+                leftPicBox.style.backgroundImage = `url(${workList[currPage].mainBoxPicUrl})`;
+                rightPicBox.style.backgroundImage = `url(${workList[currPage].mainBoxPicUrl})`;
+                h2.innerHTML = workList[currPage].pageInfo[0];
+                text1.innerHTML = workList[currPage].pageInfo[1];
+                text2.innerHTML = workList[currPage].pageInfo[2];
+              }, 1900);
+              mainPicIn(e.deltaY);
+              mainTextIn();
+              setTimeout(() => {
+                prevPage = currPage;
+                pictureBox.style.display = `block`;
+              }, 4500);
+            }
+          });
+        };
+
+        pictureBox.addEventListener(`click`, () => {
+          const workDetail = document.createElement(`div`);
+          workDetail.classList.add(`workDetail`);
+          contentContainer.append(workDetail);
+          const xhq1 = new XMLHttpRequest();
+          xhq1.open(`get`, `detail1.html`);
+          xhq1.send();
+
+          xhq1.onload = () => {
+            workDetail.addEventListener(`wheel`, e => {
+              e.stopPropagation();
+            });
+            workDetail.innerHTML = xhq1.response;
+            const exitBut = document.createElement(`div`);
+            exitBut.innerHTML = `Exit`;
+            exitBut.classList.add(`workDetailExit`);
+            workDetail.append(exitBut);
+            const workDetailExitButton = document.querySelector(
+              `.workDetailExit`
+            );
+            workDetailExitButton.addEventListener(`click`, () => {
+              workDetail.style.overflowY = "hidden";
+              workDetail.animate(
+                [
+                  {
+                    top: 0,
+                    opacity: 1
+                  },
+                  {
+                    top: `-100vh`,
+                    opacity: 0
+                  }
+                ],
+                {
+                  duration: 1000,
+                  fill: `forwards`,
+                  easing: `cubic-bezier(.52,1.17,.7,1.15)`
+                }
+              );
+              setTimeout(() => {
+                workDetail.remove();
+              }, 1000);
+            });
+          };
+          workDetail.animate(
+            [
+              {
+                top: `-100vh`,
+                opacity: 0
+              },
+              {
+                top: 0,
+                opacity: 1
+              }
+            ],
+            {
+              duration: 1000,
+              fill: `forwards`,
+              easing: `cubic-bezier(.52,1.17,.7,1.15)`
+            }
+          );
+          setTimeout(() => {
+            workDetail.style.overflowY = `auto`;
+          }, 1000);
+        });
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <div id="contentContainer">
+      <div id="backgroundBox"></div>
+      <div class="fix" id="logo">Nani</div>
+      <div class="fix" id="nav">About</div>
+      <div class="fix" id="works">All Projects</div>
+      <div id="mainConText">
+        <div class="textCover">
+          <h2>Project123</h2>
+        </div>
+        <div class="textCover">
+          <div id="text1">Web and Mobile</div>
+        </div>
+        <div class="textCover">
+          <div id="text2">19.10.10 ~ 19.10.12</div>
+        </div>
+      </div>
+      <div id="pictureBox">
+        <div id="leftPicBox"></div>
+        <div id="rightPicBox"></div>
+      </div>
+      <div id="hoverBox"></div>
+      <ul id="numberList"></ul>
+      <div id="introBox">
+        <div id="introText">
+          Oh Yoonhwan Web Publisher
+        </div>
+        <div id="introExit">Exit</div>
+      </div>
+      <div id="aboutBox">
+        <div id="aboutExit">Exit</div>
+        <div id="aboutTextCon">
+          <div class="aboutTextBox">
+            <div class="aboutText">안녕하세요 신입 퍼블리셔 오윤환입니다.</div>
+          </div>
+          <div class="aboutTextBox">
+            <div class="aboutText">
+              제 관심사는 Vanilla.js, React.js 입니다.
+            </div>
+          </div>
+          <div class="aboutTextBox">
+            <div class="aboutText">
+              언제나 제 역량을 최대한 펼칠 수 있도록 꾸준히 노력하겠습니다.
+            </div>
+          </div>
+          <div class="aboutTextBox">
+            <div class="aboutText">
+              이 포트폴리오는 2번째 버전이며, 1개의 jQuery 플러그인과
+            </div>
+          </div>
+          <div class="aboutTextBox">
+            <div class="aboutText">
+              순수 Vanilla Script로 제작했습니다.
+            </div>
+          </div>
+        </div>
+        <div id="iconBoxCon">
+          <div class="iconBox">
+            <div class="iconBoxPic html"></div>
+            <div class="iconBoxText">HTML5</div>
+          </div>
+          <div class="iconBox">
+            <div class="iconBoxText">CSS3</div>
+            <div class="iconBoxPic css"></div>
+          </div>
+          <div class="iconBox">
+            <div class="iconBoxText">JavaScript</div>
+            <div class="iconBoxPic js"></div>
+          </div>
+          <div class="iconBox">
+            <div class="iconBoxText">REACT.JS</div>
+            <div class="iconBoxPic react"></div>
+          </div>
+          <div class="iconBox">
+            <div class="iconBoxText">JQUERY</div>
+            <div class="iconBoxPic jquery"></div>
+          </div>
+        </div>
+      </div>
+      <div id="worksBox">
+        <div id="worksExit">Exit</div>
+      </div>
+    </div>
+  </body>
+</html>

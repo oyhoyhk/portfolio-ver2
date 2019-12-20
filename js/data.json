@@ -1,0 +1,24 @@
+{
+  "works": [
+    {
+      "pageInfo": ["Take", "Web and Mobile", "19.10.11 ~ 19.10.13"],
+      "mainBoxPicUrl": "./img/test2.jpg",
+      "background": "./img/back1.jpg"
+    },
+    {
+      "pageInfo": ["Wooder", "Web and Mobile", "19.10.16 ~ 19.10.17"],
+      "mainBoxPicUrl": "./img/test1.jpg",
+      "background": "./img/back2.jpg"
+    },
+    {
+      "pageInfo": ["Clara", "Web and Mobile", "19.10.22 ~ 19.10.25"],
+      "mainBoxPicUrl": "./img/test1.jpg",
+      "background": "./img/back1.jpg"
+    },
+    {
+      "pageInfo": ["Trip", "Web", "19.10.28 ~ 19.11.02"],
+      "mainBoxPicUrl": "./img/test1.jpg",
+      "background": "./img/back2.jpg"
+    }
+  ]
+}
