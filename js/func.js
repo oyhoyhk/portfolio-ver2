@@ -11,7 +11,7 @@ function intro() {
     {
       fill: `forwards`,
       duration: 2000,
-      delay: 5000,
+      delay: 6200,
       easing: `cubic-bezier(.18,.93,.75,1.63)`
     }
   );

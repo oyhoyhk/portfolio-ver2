@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #box {
+        width: 60%;
+        height: 50%;
+        position: absolute;
+        left: 20%;
+        top: 25%;
+        border: 1px solid black;
+      }
+      .innerBox {
+        width: 300%;
+        height: 100%;
+        display: flex;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .inner {
+        width: 100%;
+        height: 100%;
+      }
+      .one {
+        background: red;
+      }
+      .two {
+        background: blue;
+      }
+      .three {
+        background: tomato;
+      }
+      .lbut {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: black;
+        left: 0;
+        top: 0;
+      }
+      .rbut {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: black;
+        right: 0;
+        top: 0;
+      }
+    </style>
+    <script>
+      $(function() {
+        console.log(`hi`);
+        const a = $("#box").width();
+        const mother = $(".innerBox");
+        mother.css("left", -a);
+        let count = 0;
+        const innerBox = document.querySelector(".innerBox");
+        $(`.lbut`).click(() => {
+          innerBox.animate(
+            [
+              {
+                transform: `translate(-${a}px)`
+              },
+              {
+                transform: `translateX(${0}px)`
+              }
+            ],
+            {
+              fill: `forwards`,
+              duration: 500
+            }
+          );
+          $(`.innerBox`)
+            .children()
+            .eq(2)
+            .prependTo(mother);
+        });
+        $(`.rbut`).click(() => {
+          innerBox.animate(
+            [
+              {
+                transform: `translate(${a}px)`
+              },
+              {
+                transform: `translateX(${0}px)`
+              }
+            ],
+            {
+              fill: `forwards`,
+              duration: 500
+            }
+          );
+          $(`.innerBox`)
+            .children()
+            .eq(0)
+            .appendTo(mother);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="lbut"></div>
+    <div class="rbut"></div>
+    <div id="box">
+      <div class="innerBox">
+        <div class="inner one"></div>
+        <div class="inner two"></div>
+        <div class="inner three"></div>
+      </div>
+    </div>
+  </body>
+</html>

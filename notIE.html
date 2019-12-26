@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>IE는 지원하지 않습니다..!</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: #1e1e1e;
+        color: white;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .box {
+        display: flex;
+        flex-direction: column;
+      }
+      .up {
+        font-size: 3rem;
+        margin-bottom: 50px;
+      }
+      .down {
+        font-size: 1.6rem;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+      }
+      a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+      }
+      .chrome {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background: url("./img/chrome.png");
+        background-size: 100% 100%;
+      }
+      .firefox {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background: url("./img/firefox.png") no-repeat;
+        background-size: 100% 100%;
+      }
+      #cover {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background: white;
+        opacity: 0;
+        transition: 2s;
+      }
+      .on {
+        opacity: 1 !important;
+        transition: 2s;
+      }
+    </style>
+    <script>
+      function init() {
+        var cover = document.getElementById("cover");
+        cover.classList.remove("on");
+      }
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <div class="box">
+      <div class="up">
+        제 포트폴리오는 크롬, <br />
+        파이어폭스만을 지원합니다<br />
+        양해 부탁드립니다.
+      </div>
+      <div class="down">
+        <a href="https://www.google.com/intl/ko/chrome/"
+          ><span class="chrome"></span>크롬</a
+        >
+        <a href="https://www.mozilla.org/ko/firefox/new/"
+          ><span class="firefox"></span>파이어폭스</a
+        >
+      </div>
+    </div>
+    <div id="cover" class="on"></div>
+  </body>
+</html>

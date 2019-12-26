@@ -56,12 +56,13 @@
         xhq.onload = function() {
           mouseHoverEvent();
           const workList = xhq.response.works;
-          console.log(workList);
           setMainPage(workList, 0);
           setNumberUl(workList);
 
           numberList.children[0].classList.add(`numberOn`);
-
+          pictureBox.addEventListener(`wheel`, e => {
+            e.stopPropagation();
+          });
           Array.from(numberList.children).forEach((elem, i) => {
             elem.addEventListener(`click`, () => {
               pictureBox.style.display = `none`;
@@ -106,7 +107,6 @@
               pictureBox.style.display = `none`;
               numberList.children[prevPage].classList.remove(`numberOn`);
               numberList.children[currPage].classList.add(`numberOn`);
-              console.log(currPage);
               mainPicOut(e.deltaY);
               mainTextOut();
               mainBackChange(workList, currPage);
@@ -132,7 +132,8 @@
           workDetail.classList.add(`workDetail`);
           contentContainer.append(workDetail);
           const xhq1 = new XMLHttpRequest();
-          xhq1.open(`get`, `detail1.html`);
+          console.log(currPage);
+          xhq1.open(`get`, `detail${currPage + 1}.html`);
           xhq1.send();
 
           xhq1.onload = () => {
@@ -140,6 +141,10 @@
               e.stopPropagation();
             });
             workDetail.innerHTML = xhq1.response;
+            const detailBox = document.querySelector(`.detailBox`);
+            if (detailBox.children.length == 1) {
+              detailBox.style.justifyContent = "center";
+            }
             const exitBut = document.createElement(`div`);
             exitBut.innerHTML = `Exit`;
             exitBut.classList.add(`workDetailExit`);
@@ -170,6 +175,11 @@
                 workDetail.remove();
               }, 1000);
             });
+            const toTop = document.getElementById(`toTop`);
+
+            toTop.addEventListener(`click`, () => {
+              workDetail.scrollTop = 0;
+            });
           };
           workDetail.animate(
             [
@@ -198,11 +208,28 @@
     </script>
   </head>
   <body>
+    <script>
+      var agent = navigator.userAgent.toLowerCase();
+      $.getScript();
+
+      if (
+        (navigator.appName == "Netscape" &&
+          navigator.userAgent.search("Trident") != -1) ||
+        agent.indexOf("msie") != -1
+      ) {
+        alert("크롬, 파이어폭스만 지원합니다....!");
+        window.location = "notIE.html";
+      }
+    </script>
     <div id="contentContainer">
       <div id="backgroundBox"></div>
-      <div class="fix" id="logo">Nani</div>
+      <div class="fix" id="logo"></div>
       <div class="fix" id="nav">About</div>
-      <div class="fix" id="works">All Projects</div>
+      <div class="fix" id="works">
+        <span class="worksCircle"></span>
+        <span class="worksCircle"></span>
+        <span class="worksCircle"></span>
+      </div>
       <div id="mainConText">
         <div class="textCover">
           <h2>Project123</h2>

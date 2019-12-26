@@ -1,0 +1,1016 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Hind&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 고정 header , common 부분 */
+@media (min-width: 900px) {
+  .all {
+    width: 400vw;
+    position: absolute;
+  }
+  .all > div {
+    float: left;
+  }
+  .page_left {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    left: 5%;
+    top: calc(50% - 50px);
+    background: url("../img/left.png");
+    background-size: 100% 100%;
+    z-index: 15;
+  }
+  .page_right {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    right: 5%;
+    top: calc(50% - 50px);
+    background: url("../img/right.png");
+    background-size: 100% 100%;
+    z-index: 15;
+  }
+  header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #021018;
+    font-family: "hind";
+    z-index: 10;
+  }
+  header .header_right {
+    width: 5px;
+    height: 100%;
+  }
+  header .header_left {
+    width: 0;
+    overflow: hidden;
+  }
+  header .indi:last-of-type {
+    margin-bottom: 70px;
+  }
+  .logo {
+    position: absolute;
+    left: 35px;
+    top: 50px;
+    width: 80px;
+    height: 60px;
+    background: url("../img/logo.png") no-repeat;
+    background-size: 100% 100%;
+    z-index: 99;
+  }
+
+  .on {
+    font-size: 1.3rem;
+    color: white;
+    align-items: flex-start;
+    padding-left: 40px;
+  }
+
+  header .indi {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    border: 1px solid black;
+    background: white;
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 0;
+  }
+  header .onIndi {
+    cursor: pointer;
+    color: white;
+    width: 100px;
+    border: none;
+    background: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-left: 5px;
+  }
+  header .onIndi:hover {
+    text-shadow: 0 0 20px #56c7ff;
+  }
+  header .header_left {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    height: 100%;
+  }
+  header .header_left .menu {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    height: 80%;
+    margin-bottom: 50px;
+  }
+
+  /* ------------------ index page ---------------------- */
+
+  .main {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.5) url("../img/back2.jpg") no-repeat;
+    position: relative;
+    background-size: cover;
+    font-family: "Lobster";
+  }
+
+  .textbox {
+    position: absolute;
+    left: 58%;
+    top: 15%;
+  }
+  .textbox .subtext {
+    font-size: 2.5rem;
+  }
+  .textbox .maintext {
+    margin: 40px 0;
+    font-size: 4rem;
+    white-space: pre-line;
+    letter-spacing: 5px;
+    font-weight: bold;
+  }
+  .textbox a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
+  }
+
+  /*------------------- common footer ------------------------*/
+
+  footer {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 10;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: "Hind";
+    background: #1ab1ff;
+    z-index: 30;
+  }
+  footer .left {
+    width: 5px;
+    height: 100%;
+  }
+  footer .footer_container {
+    width: 0;
+    height: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+  .header_circle {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    background: #021018 url("../img/left2.png") no-repeat;
+    background-size: 50% 100%;
+    transform: rotate(180deg);
+    border-radius: 100%;
+    left: -25px;
+    top: 75%;
+    z-index: 10;
+    cursor: pointer;
+  }
+  .footer_circle {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    background: #1ab1ff url("../img/left2.png") no-repeat;
+    background-size: 50% 100%;
+    border-radius: 100%;
+    right: -25px;
+    top: 15%;
+    z-index: 10;
+    cursor: pointer;
+  }
+  footer .footer_container .tel {
+    width: 80%;
+    height: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    overflow: hidden;
+  }
+  footer .footer_container .tel .tel_img {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: url("../img/tel.png") no-repeat;
+    background-size: 100% 100%;
+  }
+  footer .footer_container .mail {
+    height: 5%;
+
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  footer .footer_container .mail .mail-img {
+    width: 40px;
+    height: 40px;
+    background: url("../img/mail.png") no-repeat;
+    background-size: 100% 100%;
+  }
+  footer .footer_container .text {
+    width: 90%;
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  footer .footer_container .text h4 {
+    font-size: 1.6rem;
+  }
+  footer .footer_container .text p {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  footer .footer_container .text .input input {
+    width: 90%;
+    height: 100%;
+    padding-left: 10px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    position: absolute;
+    border: none;
+  }
+  footer .footer_container .text .input {
+    margin-top: 40px;
+    width: 100%;
+    height: 60px;
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+  footer .footer_container .text .input .box {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    width: 15%;
+    height: 60px;
+    right: 0;
+    top: 0;
+    font-size: 1.3rem;
+    background: black url("../img/check.png") 50% 50% no-repeat;
+    background-size: 70% 70%;
+  }
+  footer .footer_container .contact {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    height: 40%;
+  }
+  footer .footer_container .contact h4 {
+    font-size: 1.5rem;
+  }
+  footer .footer_container .contact #map {
+    background: url(../img/map.jpg) no-repeat;
+    background-size: 100% 100%;
+    width: 90%;
+    height: 80%;
+  }
+  /*----------------------- sub1 page ------------------------- */
+
+  .sub1 {
+    width: 100vw;
+    height: 100vh;
+    background: url("../img/sub_background1.jpg") no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Hind";
+    position: relative;
+  }
+
+  .sub1 .container {
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .sub1 .container h2 {
+    font-family: "lobster";
+    height: 20%;
+    font-size: 3rem;
+  }
+  .sub1 .container .sub_container {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .sub1 .container .sub_container .sec {
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px 3px gray;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .sub1 .container .sub_container .sec .pic {
+    width: 95%;
+    margin: 10px 0;
+    height: 40%;
+    border-radius: 15px;
+  }
+  .sub1 .container .sub_container .sec:first-of-type .pic {
+    background: url("../img/sec1.jpg") no-repeat;
+    background-size: 100% 100%;
+  }
+  .sub1 .container .sub_container .sec:nth-of-type(2) .pic {
+    background: url("../img/sec2.jpg") no-repeat;
+    background-size: 100% 100%;
+  }
+  .sub1 .container .sub_container .sec:last-of-type .pic {
+    background: url("../img/sec3.jpg") no-repeat;
+    background-size: 100% 100%;
+  }
+  .sub1 .container .sub_container .sec .text {
+    width: 80%;
+    height: 30%;
+    margin: 60px 30px;
+  }
+  .sub1 .container .sub_container .sec:nth-of-type(2) .text {
+    margin-top: 30px;
+  }
+
+  /* ---------------- sub2 page ----------------- */
+
+  .sub2 {
+    width: 100vw;
+    height: 100vh;
+    background: url("../img/sub2-background.jpg") no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Hind";
+    position: relative;
+  }
+
+  .sub2 .container {
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .sub2 img {
+    width: 100%;
+    height: 100vh;
+  }
+  .sub2 .container h2 {
+    font-family: "lobster";
+    height: 20%;
+    font-size: 3rem;
+  }
+
+  .sub2 .sub2Pic {
+    position: absolute;
+    width: 35%;
+    height: 200vh;
+    left: 55%;
+    top: 0;
+    cursor: pointer;
+    font-size: 0;
+    overflow: hidden;
+  }
+
+  .sub2 .float_text {
+    position: absolute;
+    width: 600px;
+    height: 300px;
+    left: 15%;
+    top: 55%;
+    display: block;
+  }
+  .sub2 .float_text:last-of-type {
+    opacity: 0;
+  }
+  .sub2_on {
+    display: block;
+  }
+  .sub2 .float_text h4 {
+    font-size: 2rem;
+  }
+  .sub2 .float_text p {
+    font-size: 1.2rem;
+    width: 300px;
+    padding: 15px 0 40px 0;
+  }
+  .sub2 .float_text a {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  /* -------------------- sub3 ------------------------ */
+  .sub3 {
+    width: 100vw;
+    height: 100vh;
+    background: url("../img/sub3-background.jpg") no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Hind";
+    position: relative;
+  }
+  .sub3 .container {
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .sub3 .container h2 {
+    font-family: "lobster";
+    height: 20%;
+    font-size: 3rem;
+  }
+  .sub3 .container .content {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .sub3 .container .left {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .sub3 .container .left .big {
+    width: 90%;
+    height: 65%;
+    background: url("../img/ex_1.jpg");
+    background-size: 100% 100%;
+  }
+  .sub3 .container .left .small {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .sub3 .container .left .small .thumb {
+    width: 25%;
+    height: 100%;
+  }
+  .sub3 .container .left .small .thumb:nth-of-type(1) {
+    width: 25%;
+    height: 100%;
+    background: url("../img/ex_1.jpg");
+    background-size: 100% 100%;
+  }
+  .sub3 .container .left .small .thumb:nth-of-type(2) {
+    width: 25%;
+    height: 100%;
+    background: url("../img/ex_2.jpg");
+    background-size: 100% 100%;
+  }
+  .sub3 .container .left .small .thumb:nth-of-type(3) {
+    width: 25%;
+    height: 100%;
+    background: url("../img/ex_3.jpg");
+    background-size: 100% 100%;
+  }
+  .sub3 .container .right {
+    width: 40%;
+    height: 100%;
+    position: relative;
+  }
+  .sub3 .container .right .sub3_text {
+    position: absolute;
+    font-family: "Lobster";
+    font-size: 30rem;
+    bottom: -80px;
+    left: -50px;
+    opacity: 0.4;
+  }
+  .sub3 .container .right .m_img {
+    position: absolute;
+    left: 200px;
+    top: -250px;
+  }
+  .sub3 .container .right .m_img img {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+@media (max-width: 899px) {
+  .all {
+    width: 100vw;
+    height: 400vh;
+    position: absolute;
+  }
+  .all > div {
+    float: left;
+  }
+  .all .page_left {
+    display: none;
+  }
+  .all .page_right {
+    display: none;
+  }
+  header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: #021018;
+    font-family: "hind";
+    z-index: 10;
+  }
+  header .header_right {
+    display: none;
+  }
+  header .header_left {
+    width: 70%;
+    height: 100%;
+    overflow: hidden;
+  }
+  header .indi:last-of-type {
+    margin-bottom: 70px;
+  }
+  .logo {
+    position: absolute;
+    left: 35px;
+    top: 25px;
+    width: 80px;
+    height: 60px;
+    background: url("../img/logo.png") no-repeat;
+    background-size: 100% 100%;
+    z-index: 99;
+  }
+
+  .on {
+    font-size: 1.3rem;
+    color: white;
+    align-items: flex-start;
+    padding-left: 40px;
+  }
+
+  header .onIndi {
+    cursor: pointer;
+    color: white;
+    border: none;
+    background: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  header .onIndi:hover {
+    text-shadow: 0 0 20px #56c7ff;
+  }
+  header .header_left {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    height: 100%;
+  }
+  header .header_left .menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80%;
+  }
+
+  /* ------------------ index page ---------------------- */
+
+  .main {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.5) 30% url("../img/back2.jpg") no-repeat;
+    position: relative;
+    background-size: cover;
+    font-family: "Lobster";
+  }
+
+  .textbox {
+    position: absolute;
+    right: 10%;
+    top: 40%;
+  }
+  .textbox .subtext {
+    font-size: 1.5rem;
+  }
+  .textbox .maintext {
+    margin: 40px 0;
+    font-size: 2rem;
+    white-space: pre-line;
+    letter-spacing: 5px;
+    font-weight: bold;
+  }
+  .textbox a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
+  }
+
+  /*------------------- common footer ------------------------*/
+
+  footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 10vh;
+    z-index: 10;
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    font-family: "Hind";
+    background: #1ab1ff;
+    z-index: 30;
+  }
+  footer .left {
+    width: 5px;
+    height: 100%;
+  }
+  footer .footer_container {
+    width: 0;
+    height: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+  }
+  .header_circle {
+    display: none;
+  }
+  .footer_circle {
+    display: none;
+  }
+  footer .footer_container .tel {
+    width: 80%;
+    height: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    overflow: hidden;
+  }
+  footer .footer_container .tel .tel_img {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: url("../img/tel.png") no-repeat;
+    background-size: 100% 100%;
+  }
+  footer .footer_container .mail {
+    height: 5%;
+
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  footer .footer_container .mail .mail-img {
+    width: 40px;
+    height: 40px;
+    background: url("../img/mail.png") no-repeat;
+    background-size: 100% 100%;
+  }
+  footer .footer_container .text {
+    width: 90%;
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  footer .footer_container .text h4 {
+    font-size: 1.6rem;
+  }
+  footer .footer_container .text p {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  footer .footer_container .text .input input {
+    width: 90%;
+    height: 100%;
+    padding-left: 10px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    position: absolute;
+    border: none;
+  }
+  footer .footer_container .text .input {
+    margin-top: 40px;
+    width: 100%;
+    height: 60px;
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+  footer .footer_container .text .input .box {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    width: 15%;
+    height: 60px;
+    right: 0;
+    top: 0;
+    font-size: 1.3rem;
+    background: black url("../img/check.png") 50% 50% no-repeat;
+    background-size: 70% 70%;
+  }
+  footer .footer_container .contact {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    height: 40%;
+  }
+  footer .footer_container .contact h4 {
+    font-size: 1.5rem;
+  }
+  footer .footer_container .contact #map {
+    background: url(../img/map.jpg) no-repeat;
+    background-size: 100% 100%;
+    width: 90%;
+    height: 80%;
+  }
+  /*----------------------- sub1 page ------------------------- */
+
+  .sub1 {
+    width: 100vw;
+    height: 100vh;
+    background: url("../img/sub_background1.jpg") no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Hind";
+    position: relative;
+  }
+
+  .sub1 .container {
+    width: 90vw;
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .sub1 .container h2 {
+    font-family: "lobster";
+    height: 20%;
+    font-size: 3rem;
+  }
+  .sub1 .container .sub_container {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .sub1 .container .sub_container .sec {
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px 3px gray;
+    width: 45%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .sub1 .container .sub_container .sec:nth-of-type(2) {
+    display: none;
+  }
+  .sub1 .container .sub_container .sec .pic {
+    width: 95%;
+    margin: 10px 0;
+    height: 40%;
+    border-radius: 15px;
+  }
+  .sub1 .container .sub_container .sec:first-of-type .pic {
+    background: url("../img/sec1.jpg") no-repeat;
+    background-size: 100% 100%;
+  }
+  .sub1 .container .sub_container .sec:nth-of-type(2) .pic {
+    background: url("../img/sec2.jpg") no-repeat;
+    background-size: 100% 100%;
+  }
+  .sub1 .container .sub_container .sec:last-of-type .pic {
+    background: url("../img/sec3.jpg") no-repeat;
+    background-size: 100% 100%;
+  }
+  .sub1 .container .sub_container .sec .text {
+    width: 80%;
+    height: 30%;
+    margin: 60px 30px;
+  }
+  .sub1 .container .sub_container .sec:nth-of-type(2) .text {
+    margin-top: 30px;
+  }
+
+  /* ---------------- sub2 page ----------------- */
+
+  .sub2 {
+    width: 100vw;
+    height: 100vh;
+    background: url("../img/sub2-background.jpg") no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Hind";
+    position: relative;
+  }
+
+  .sub2 .container {
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .sub2 img {
+    width: 100%;
+    height: 100vh;
+  }
+  .sub2 .container h2 {
+    font-family: "lobster";
+    height: 20%;
+    font-size: 2rem;
+  }
+
+  .sub2 .pic {
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    top: 55%;
+    cursor: pointer;
+    font-size: 0;
+    overflow: hidden;
+  }
+
+  .sub2 .float_text {
+    position: absolute;
+    width: 600px;
+    height: 300px;
+    left: 40%;
+    top: 25%;
+    display: none;
+  }
+  .sub2_on {
+    display: block;
+  }
+  .sub2 .float_text h4 {
+    font-size: 1.5rem;
+  }
+  .sub2 .float_text p {
+    font-size: 1rem;
+    width: 300px;
+    padding: 15px 0 40px 0;
+  }
+  .sub2 .float_text a {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  /* -------------------- sub3 ------------------------ */
+  .sub3 {
+    width: 100vw;
+    height: 100vh;
+    background: url("../img/sub3-background.jpg") no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Hind";
+    position: relative;
+  }
+  .sub3 .container {
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .sub3 .container h2 {
+    font-family: "lobster";
+    height: 20%;
+    font-size: 3rem;
+  }
+  .sub3 .container .content {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .sub3 .container .left {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+  }
+  .sub3 .container .left .big {
+    width: 100%;
+    height: 65%;
+    background: url("../img/ex_1.jpg");
+    background-size: 100% 100%;
+  }
+  .sub3 .container .left .small {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    display: none;
+  }
+  .sub3 .container .left .small .thumb {
+    width: 25%;
+    height: 100%;
+  }
+  .sub3 .container .left .small .thumb:nth-of-type(1) {
+    width: 25%;
+    height: 100%;
+    background: url("../img/ex_1.jpg");
+    background-size: 100% 100%;
+  }
+  .sub3 .container .left .small .thumb:nth-of-type(2) {
+    width: 25%;
+    height: 100%;
+    background: url("../img/ex_2.jpg");
+    background-size: 100% 100%;
+  }
+  .sub3 .container .left .small .thumb:nth-of-type(3) {
+    width: 25%;
+    height: 100%;
+    background: url("../img/ex_3.jpg");
+    background-size: 100% 100%;
+  }
+  .sub3 .container .right {
+    width: 0%;
+    height: 100%;
+  }
+  .sub3 .container .right .text {
+    position: absolute;
+    font-family: "Lobster";
+    font-size: 20rem;
+    top: 100px;
+    left: 100px;
+    opacity: 0.4;
+  }
+  .sub3 .container .right .m_img {
+    display: none;
+  }
+  .sub3 .container .right .m_img img {
+    width: 500px;
+    height: 500px;
+  }
+}
