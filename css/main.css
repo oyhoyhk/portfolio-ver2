@@ -34,7 +34,7 @@ body {
 .fix {
   font-size: 1.3rem;
   position: absolute;
-  cursor: pointer;
+  cursor: url("../img/customCursor.png") 5 5, auto;
 }
 
 #logo {
@@ -62,6 +62,7 @@ body {
   align-items: center;
   width: 40px;
   height: 40px;
+  cursor: url("../img/customCursor.png") 5 5, auto;
 }
 
 .worksCircle {
@@ -185,7 +186,7 @@ h2 {
   opacity: 0.5;
   position: relative;
   transition: 0.5s;
-  cursor: url(../img/licursor.gif) 50 50, auto;
+  cursor: url("../img/customCursor.png") 5 5, auto;
 }
 
 .numberOn {
@@ -242,7 +243,7 @@ h2 {
   right: 3%;
   top: 3%;
   display: none;
-  cursor: pointer;
+  cursor: url("../img/customCursor.png") 5 5, auto;
 }
 
 #aboutBox {
@@ -274,7 +275,7 @@ h2 {
   color: black;
   right: 3%;
   top: 3%;
-  cursor: pointer;
+  cursor: url("../img/customCursor.png") 5 5, auto;
 }
 
 #worksBox {
@@ -295,7 +296,7 @@ h2 {
   color: white;
   right: 3%;
   top: 3%;
-  cursor: pointer;
+  cursor: url("../img/customCursor.png") 5 5, auto;
 }
 
 #aboutTextCon {
@@ -435,7 +436,7 @@ h2 {
   color: rgba(0, 0, 0, 0.2);
   margin-top: 50px;
   margin-bottom: 50px;
-  cursor: pointer;
+  cursor: url("../img/customCursor.png") 5 5, auto;
   transition: 0.5s;
   transform-origin: center center;
 }
@@ -467,7 +468,7 @@ h2 {
   right: 3%;
   top: 3%;
   font-size: 1.3rem;
-  cursor: pointer;
+  cursor: url("../img/customCursor.png") 5 5, auto;
 }
 
 #detailMain {

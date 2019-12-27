@@ -885,37 +885,53 @@
     font-size: 2rem;
   }
 
-  .sub2 .pic {
+  .sub2Pic {
     position: absolute;
-    width: 100%;
-    height: 30%;
-    top: 55%;
+    width: 90%;
+    height: 45%;
+    top: 50%;
     cursor: pointer;
     font-size: 0;
     overflow: hidden;
   }
-
+  .sub2Pic img:first-of-type {
+    position: absolute;
+    left: 0;
+    top: -100%;
+    width: 50%;
+    z-index: 2;
+  }
+  .sub2Pic img:last-of-type {
+    position: absolute;
+    left: 43%;
+    top: -70%;
+    width: 70%;
+  }
   .sub2 .float_text {
     position: absolute;
-    width: 600px;
+    width: 40%;
     height: 300px;
-    left: 40%;
+  }
+  .sub2 .leftTextBox {
+    left: 7%;
     top: 25%;
-    display: none;
+  }
+  .sub2 .rightTextBox {
+    left: 52%;
+    top: 25%;
   }
   .sub2_on {
     display: block;
   }
   .sub2 .float_text h4 {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   .sub2 .float_text p {
-    font-size: 1rem;
-    width: 300px;
+    font-size: 0.8rem;
     padding: 15px 0 40px 0;
   }
   .sub2 .float_text a {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: bold;
   }
 
@@ -930,6 +946,15 @@
     align-items: center;
     font-family: "Hind";
     position: relative;
+  }
+  .sub3_text {
+    font-size: 20rem;
+    opacity: 0.4;
+    position: absolute;
+    right: 4%;
+    top: 15%;
+    font-family: "lobster";
+    z-index: 1;
   }
   .sub3 .container {
     width: 80vw;
